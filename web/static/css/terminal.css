@@ -1,0 +1,27 @@
+body {
+  background: #111;
+  color: #eee;
+  font-family: monospace;
+  padding: 20px;
+}
+
+#terminal {
+  border: 1px solid #444;
+  padding: 16px;
+  min-height: 400px;
+  white-space: pre-wrap;
+  outline: none;
+  cursor: text;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+50% {
+  opacity: 0;
+}
+}
