@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wasm Terminal</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: monospace;
+      padding: 20px;
+    }
+
+    #terminal {
+      border: 1px solid #444;
+      padding: 16px;
+      min-height: 300px;
+      margin-bottom: 12px;
+      white-space: pre-wrap;
+    }
+
+    #commandInput {
+      width: 100%;
+      padding: 10px;
+      background: #1b1b1b;
+      color: #fff;
+      border: 1px solid #444;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Portfolio Terminal</h1>
+  <div id="terminal">Type "help" and press Enter.</div>
+  <input id="commandInput" type="text" placeholder="Enter command..." />
+
+  <script src="/static/terminal/wasm_exec.js"></script>
+  <script>
+    const go = new Go();
+
+    async function initWasm() {
+      const response = await fetch("/static/terminal/main.wasm");
+      const result = await WebAssembly.instantiateStreaming(response, go.importObject);
+      go.run(result.instance);
+    }
+
+    initWasm().catch((error) => {
+      const terminal = document.getElementById("terminal");
+      terminal.textContent = `Failed to load terminal: ${error.message}`;
+    });
+
+    const terminal = document.getElementById("terminal");
+    const input = document.getElementById("commandInput");
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const command = input.value;
+        terminal.textContent += `\n> ${command}`;
+
+        const output = window.runCommand(command);
+
+        if (output === "__CLEAR__") {
+          terminal.textContent = "";
+        } else if (output) {
+          terminal.textContent += `\n${output}`;
+        }
+
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

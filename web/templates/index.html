@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trevor Nance | Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Developer portfolio featuring resume, education, skills, and projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#home">TN</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero section reveal">
+        <p class="eyebrow">Software Developer Portfolio</p>
+        <h1>Full-Stack Developer with a focus on Back-End systems</h1>
+        <p class="lead">
+          I enjoy developing full-stack web applications and CLI tools. Mostly focused on 
+          back-end development with Goland, Python, JS
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="#resume">See Resume</a>
+        </div>
+      </section>
+
+      <section id="education" class="section reveal">
+        <h2>Education</h2>
+        <div class="grid two-col">
+          <article class="card">
+            <h3>B.S. in Computer Science</h3>
+            <p class="meta">Western Governers University | 2021 - 2022</p>
+          </article>
+          <article class="card">
+            <h3>B.S. in Dietary Nutrition</h3>
+            <p class="meta">Johnson & Wales University | 2013 - 2017</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section reveal">
+        <h2>Skills</h2>
+        <div class="skills-wrap">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul>
+              <li>JavaScript</li>
+              <li>Golang</li>
+              <li>Python</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <ul>
+              <li>React</li>
+              <li>HTML/CSS</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Backend & Tools</h3>
+            <ul>
+              <li>PostgreSQL</li>
+              <li>Git/GitHub</li>
+              <li>VPS Deployment</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section reveal">
+        <h2>Featured Projects</h2>
+        <div class="grid three-col">
+          <article class="card project-card">
+            <h3>MMA Site</h3>
+            <p>As a fan of MMA and stats, I wanted a basic site I could go to to view past and upcoming fights.
+          </p>
+            <p class="meta">Tech: Goland, Python, JS, PostgreSQL, CSS, Docker</p>
+            <div class="links">
+              <a href="https://fightdb.org">Site Link</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>Snip</h3>
+            <p>I needed a basic CLI tool to help me remember the many tools/commands I have.</p>
+            <p class="meta">Tech: Golang</p>
+            <div class="links">
+              <a href="#">Live Demo</a>
+              <a href="https://github.com/nancetrevor/Snip">Source Code</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>Project Three</h3>
+            <p>Brief summary of the problem, your solution, and measurable impact.</p>
+            <p class="meta">Tech: Next.js, Prisma, PostgreSQL</p>
+            <div class="links">
+              <a href="#">Live Demo</a>
+              <a href="#">Source Code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" class="section reveal">
+        <h2>Resume</h2>
+        <div class="panel resume-panel">
+          <iframe 
+            src="/static/img/resume.pdf#zoom=page-width"
+            class="resume-frame"
+          ></iframe>
+          <div class="resume-actions">
+            <a class="btn btn-primary" href="/static/img/resume.pdf" download>Download Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <h2>Contact</h2>
+        <div class="panel contact-panel">
+          <p>Email: <a href="mailto:trevornance7@gmail.com">Trevornance7@gmail.com</a></p>
+          <p>GitHub: <a href="https://github.com/nancetrevor">github.com/nancetrevor</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/trevor-nance/">linkedin.com/in/trevor-nance</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Trevor Nance. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>
