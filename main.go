@@ -22,7 +22,7 @@ func main() {
 	mux.HandleFunc("/", handlers.HomeHandler)
 	mux.HandleFunc("/terminal/", handlers.TerminalHandler)
 
-	serverHost := "127.0.0.1:8080"
+	serverHost := "127.0.0.1:8081"
 	httpServer := &http.Server{
 		Addr:         serverHost,
 		Handler:      mux,
