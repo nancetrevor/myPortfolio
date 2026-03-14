@@ -8,6 +8,7 @@
       name="description"
       content="Developer portfolio featuring resume, education, skills, and projects."
     />
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,9 +18,6 @@
     <link rel="stylesheet" href="/static/css/styles.css" />
   </head>
   <body>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-
     <header class="site-header">
       <a class="brand" href="#home">TN</a>
       <nav>
@@ -28,7 +26,6 @@
           <li><a href="#education">Education</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -43,8 +40,39 @@
           back-end development with Goland, Python, JS
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-ghost" href="#resume">See Resume</a>
+          <a class="btn btn-primary" href="/static/img/resume.pdf">View Resume</a>
+        </div>
+      </section>
+
+      <section id="projects" class="section reveal">
+        <h2>Featured Projects</h2>
+        <div class="grid three-col">
+          <article class="card project-card">
+            <h3>MMA Site</h3>
+            <p>As a fan of MMA and stats, I wanted a basic site I could go to to view past and upcoming fights.
+          </p>
+            <p class="meta">Tech: Goland, Python, JS, PostgreSQL, CSS, Docker</p>
+            <div class="links">
+              <a href="https://fightdb.org">Site Link</a>
+              <a href="/architecture">Architecture Explination</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>Snip</h3>
+            <p>I needed a basic CLI tool to help me remember the many tools/commands I have.</p>
+            <p class="meta">Tech: Golang</p>
+            <div class="links">
+              <a href="https://github.com/nancetrevor/Snip">Git Repo</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>Journal</h3>
+            <p>Basic CLI tool for quick writing. Can search entries, adjust editor, open entry in editor, etc.</p>
+            <p class="meta">Tech: Golang</p>
+            <div class="links">
+              <a href="https://github.com/nancetrevor/cli_journal">Git Repo</a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -92,51 +120,6 @@
         </div>
       </section>
 
-      <section id="projects" class="section reveal">
-        <h2>Featured Projects</h2>
-        <div class="grid three-col">
-          <article class="card project-card">
-            <h3>MMA Site</h3>
-            <p>As a fan of MMA and stats, I wanted a basic site I could go to to view past and upcoming fights.
-          </p>
-            <p class="meta">Tech: Goland, Python, JS, PostgreSQL, CSS, Docker</p>
-            <div class="links">
-              <a href="https://fightdb.org">Site Link</a>
-            </div>
-          </article>
-          <article class="card project-card">
-            <h3>Snip</h3>
-            <p>I needed a basic CLI tool to help me remember the many tools/commands I have.</p>
-            <p class="meta">Tech: Golang</p>
-            <div class="links">
-              <a href="#">Live Demo</a>
-              <a href="https://github.com/nancetrevor/Snip">Source Code</a>
-            </div>
-          </article>
-          <article class="card project-card">
-            <h3>Journal</h3>
-            <p>Basic CLI tool for quick writing. Can search entries, adjust editor, open entry in editor, etc.</p>
-            <p class="meta">Tech: Golang</p>
-            <div class="links">
-              <a href="#">Live Demo</a>
-              <a href="https://github.com/nancetrevor/cli_journal">Source Code</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="resume" class="section reveal">
-        <h2>Resume</h2>
-        <div class="panel resume-panel">
-          <iframe 
-            src="/static/img/resume.pdf#zoom=page-width"
-            class="resume-frame"
-          ></iframe>
-          <div class="resume-actions">
-            <a class="btn btn-primary" href="/static/img/resume.pdf" download>Download Resume</a>
-          </div>
-        </div>
-      </section>
 
       <section id="contact" class="section reveal">
         <h2>Contact</h2>
@@ -144,6 +127,9 @@
           <p>Email: <a href="mailto:trevornance7@gmail.com">Trevornance7@gmail.com</a></p>
           <p>GitHub: <a href="https://github.com/nancetrevor">github.com/nancetrevor</a></p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/trevor-nance/">linkedin.com/in/trevor-nance</a></p>
+            <div class="resume-actions">
+              <a class="btn btn-primary" href="/static/img/resume.pdf" download>Download Resume</a>
+            </div>
         </div>
       </section>
     </main>

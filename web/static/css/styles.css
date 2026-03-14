@@ -1,13 +1,17 @@
 :root {
-  --bg: #f4f0e8;
-  --surface: #fffaf4;
-  --ink: #132235;
-  --ink-soft: #35465f;
-  --accent: #c2472d;
-  --accent-2: #1f7a8c;
-  --line: #d8cebf;
-  --shadow: 0 18px 40px rgba(22, 37, 57, 0.08);
-  --radius: 18px;
+  color-scheme: dark;
+  --bg: #0a0f14;
+  --bg-elevated: #101821;
+  --panel: rgba(15, 24, 34, 0.94);
+  --panel-strong: #172230;
+  --ink: #edf3f8;
+  --ink-soft: #a7b6c5;
+  --accent: #f08c5a;
+  --accent-2: #58c4b6;
+  --line: rgba(162, 183, 201, 0.16);
+  --line-strong: rgba(162, 183, 201, 0.28);
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --radius: 22px;
 }
 
 * {
@@ -22,28 +26,43 @@ body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at 0% 0%, #fff7e6 0%, var(--bg) 40%, #e9ecef 100%);
+  background:
+    radial-gradient(circle at top, rgba(88, 196, 182, 0.08), transparent 32%),
+    linear-gradient(180deg, #091017 0%, var(--bg) 48%, #060a0e 100%);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 82%);
+  opacity: 0.18;
 }
 
 h1,
 h2,
 h3 {
   font-family: "Syne", sans-serif;
-  line-height: 1.15;
+  line-height: 1.08;
   margin: 0;
 }
 
 h1 {
-  font-size: clamp(2.1rem, 4vw, 4rem);
-  max-width: 18ch;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  max-width: 14ch;
+  letter-spacing: -0.05em;
 }
 
 h2 {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
   margin-bottom: 1rem;
 }
 
@@ -56,57 +75,35 @@ a:hover {
   text-decoration: underline;
 }
 
-.bg-glow {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(60px);
-  z-index: -1;
-  opacity: 0.45;
-}
-
-.bg-glow-1 {
-  width: 300px;
-  height: 300px;
-  background: #ffd166;
-  top: -120px;
-  left: -80px;
-}
-
-.bg-glow-2 {
-  width: 320px;
-  height: 320px;
-  background: #86bbd8;
-  bottom: -130px;
-  right: -100px;
-}
-
 .site-header {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 1.2rem 1.4rem;
+  padding: 1rem 1.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  background: color-mix(in srgb, var(--bg) 75%, white 25%);
-  backdrop-filter: blur(8px);
-  z-index: 10;
-  border-bottom: 1px solid var(--line);
+  z-index: 20;
+  background: rgba(10, 15, 20, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(162, 183, 201, 0.12);
 }
 
 .brand {
   font-family: "Syne", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--ink);
-  border: 1px solid var(--ink);
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.03);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
   display: grid;
   place-items: center;
   text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .nav-links {
@@ -122,49 +119,56 @@ a:hover {
   font-weight: 500;
 }
 
+.nav-links a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
 main {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem 1.4rem 4rem;
+  padding: 2rem 1.4rem 4.5rem;
 }
 
 .section {
-  margin: 4.2rem 0;
+  margin: 4.8rem 0;
 }
 
 .eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
   margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  color: var(--accent-2);
 }
 
 .lead {
-  font-size: 1.15rem;
-  max-width: 62ch;
+  font-size: 1.08rem;
+  max-width: 60ch;
+  color: var(--ink-soft);
 }
 
 .hero {
-  min-height: 58vh;
+  min-height: 64vh;
   display: grid;
   align-content: center;
   gap: 1rem;
+  padding: 2.4rem 0 1rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 0.6rem;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 .btn {
   display: inline-block;
   border-radius: 999px;
-  padding: 0.72rem 1.2rem;
+  padding: 0.8rem 1.24rem;
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
 }
 
@@ -174,21 +178,23 @@ main {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 10px 20px rgba(194, 71, 45, 0.25);
+  background: linear-gradient(135deg, var(--accent), #ff7f50);
+  color: #081017;
+  box-shadow: 0 14px 28px rgba(240, 140, 90, 0.24);
 }
 
 .btn-ghost {
   color: var(--ink);
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .panel,
 .card,
 .skill-group {
-  background: color-mix(in srgb, var(--surface) 88%, white 12%);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)),
+    var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -196,7 +202,7 @@ main {
 
 .panel,
 .card {
-  padding: 1.2rem 1.1rem;
+  padding: 1.3rem 1.2rem;
 }
 
 .grid {
@@ -224,22 +230,35 @@ main {
 }
 
 .skill-group {
-  padding: 1rem;
+  padding: 1rem 1.05rem;
 }
 
 .skill-group h3 {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
 }
 
 .skill-group ul {
   margin: 0;
   padding-left: 1rem;
+  color: var(--ink-soft);
+}
+
+.card h3,
+.skill-group h3,
+.section h2 {
+  color: var(--ink);
+}
+
+.card p,
+.panel p,
+.project-card p {
+  color: var(--ink-soft);
 }
 
 .project-card {
   display: grid;
   align-content: space-between;
-  gap: 0.7rem;
+  gap: 0.8rem;
 }
 
 .links {
@@ -251,7 +270,7 @@ main {
 .resume-panel,
 .contact-panel {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .resume-panel {
@@ -266,16 +285,17 @@ main {
   min-height: 900px;
   border: 0;
   border-radius: 0;
+  background: #0d1218;
 }
 
 .resume-actions {
-  padding: 0 1.1rem 1.1rem;
+  padding: 0 1.2rem 1.2rem;
 }
 
 .site-footer {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(162, 183, 201, 0.12);
   text-align: center;
-  padding: 1.4rem;
+  padding: 1.5rem;
   color: var(--ink-soft);
 }
 
@@ -302,6 +322,7 @@ main {
   }
 
   .hero {
-    min-height: 48vh;
+    min-height: 52vh;
+    padding-top: 1rem;
   }
 }

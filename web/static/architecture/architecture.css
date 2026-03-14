@@ -1,17 +1,16 @@
 :root {
   color-scheme: dark;
-  --bg: #08131d;
-  --bg-soft: rgba(11, 24, 35, 0.78);
-  --panel: rgba(16, 32, 46, 0.88);
-  --panel-strong: #102536;
-  --line: rgba(140, 186, 214, 0.35);
-  --border: rgba(165, 207, 233, 0.2);
-  --text: #ecf5fb;
-  --muted: #97adbc;
-  --accent: #7ef0c4;
-  --accent-2: #f4bf75;
+  --bg: #0a0f14;
+  --panel: rgba(15, 24, 34, 0.94);
+  --panel-strong: #172230;
+  --line: rgba(162, 183, 201, 0.16);
+  --border: rgba(162, 183, 201, 0.18);
+  --text: #edf3f8;
+  --muted: #a7b6c5;
+  --accent: #f08c5a;
+  --accent-2: #58c4b6;
   --accent-3: #83b5ff;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
 }
 
 * {
@@ -25,12 +24,30 @@ body {
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(126, 240, 196, 0.14), transparent 28%),
-    radial-gradient(circle at top right, rgba(131, 181, 255, 0.12), transparent 32%),
-    linear-gradient(180deg, #06111a 0%, var(--bg) 55%, #050d14 100%);
+    radial-gradient(circle at top, rgba(88, 196, 182, 0.08), transparent 32%),
+    linear-gradient(180deg, #091017 0%, var(--bg) 48%, #060a0e 100%);
   color: var(--text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 82%);
+  opacity: 0.18;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Syne", sans-serif;
 }
 
 code {
@@ -38,26 +55,25 @@ code {
 }
 
 .architecture-page {
-  width: min(1280px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 48px 0 64px;
+  padding: 2rem 0 4.5rem;
 }
 
 .hero-panel,
 .overview-card,
 .diagram-card,
 .details-panel {
-  border: 1px solid var(--border);
+  border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)),
+    var(--panel);
 }
 
 .hero-panel {
   padding: 32px;
-  border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(14, 30, 43, 0.96), rgba(8, 20, 30, 0.92)),
-    var(--bg-soft);
+  border-radius: 22px;
 }
 
 .eyebrow,
@@ -65,8 +81,8 @@ code {
   margin: 0 0 10px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 0.75rem;
-  color: var(--accent);
+  font-size: 0.74rem;
+  color: var(--accent-2);
 }
 
 .hero-panel h1,
@@ -77,8 +93,9 @@ code {
 }
 
 .hero-panel h1 {
-  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
   max-width: 12ch;
+  letter-spacing: -0.05em;
 }
 
 .hero-copy,
@@ -119,9 +136,8 @@ code {
 }
 
 .overview-card {
-  border-radius: 24px;
+  border-radius: 22px;
   padding: 22px;
-  background: var(--panel);
 }
 
 .overview-card h3 {
@@ -142,8 +158,7 @@ code {
 
 .diagram-card,
 .details-panel {
-  border-radius: 28px;
-  background: var(--panel);
+  border-radius: 22px;
 }
 
 .diagram-card {
@@ -167,10 +182,10 @@ code {
 }
 
 .reset-button {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(162, 183, 201, 0.28);
   border-radius: 999px;
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   cursor: pointer;
   font: inherit;
@@ -179,7 +194,7 @@ code {
 
 .reset-button:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(165, 207, 233, 0.38);
+  border-color: rgba(162, 183, 201, 0.38);
   transform: translateY(-1px);
 }
 
@@ -188,12 +203,12 @@ code {
   overflow: hidden;
   min-height: 520px;
   max-height: 520px;
-  border-radius: 24px;
-  border: 1px solid rgba(165, 207, 233, 0.14);
+  border-radius: 22px;
+  border: 1px solid rgba(162, 183, 201, 0.14);
   background:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(6, 18, 28, 0.95), rgba(10, 24, 36, 0.92));
+    linear-gradient(180deg, rgba(9, 16, 23, 0.96), rgba(11, 19, 27, 0.94));
   background-size: 36px 36px, 36px 36px, auto;
   cursor: grab;
   touch-action: none;
