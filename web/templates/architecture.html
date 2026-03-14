@@ -1,58 +1,268 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" href="/static/architecture/architecture.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{.Title}} | Trevor Nance</title>
+    <meta
+      name="description"
+      content="Interactive architecture walkthrough for the FightDB.org portfolio project."
+    />
+    <link rel="stylesheet" href="/static/architecture/architecture.css" />
   </head>
   <body>
-    <section class="architecture-section">
-      <div class="architecture-layout">
-        <div class="diagram-area">
-          <svg class="diagram-lines" viewBox="0 0 1000 700" preserveAspectRatio="none">
-            <line x1="850" y1="120" x2="700" y2="220" />
-            <line x1="700" y1="220" x2="520" y2="220" />
-            <line x1="520" y1="320" x2="420" y2="470" />
-            <line x1="600" y1="470" x2="470" y2="520" />
-          </svg>
+    <main class="architecture-page">
+      <section class="hero-panel">
+        <p class="eyebrow">FightDB.org system walkthrough</p>
+        <h1>Architecture overview</h1>
+        <p class="hero-copy">
+          This page shows how the site moves from a browser request, through the
+          VPS and Go application, into PostgreSQL, and how the Python data
+          pipeline keeps the database up to date.
+        </p>
+      </section>
 
-          <button class="node" data-node="domain" style="top: 40px; left: 760px;">
-            FightDB.org
-          </button>
-
-          <button class="node" data-node="cloudflare" style="top: 180px; left: 630px;">
-            Cloudflare
-          </button>
-
-          <button class="node" data-node="caddy" style="top: 180px; left: 420px;">
-            Caddy Server
-          </button>
-
-          <button class="node" data-node="backend" style="top: 320px; left: 260px;">
-            Go Backend
-          </button>
-
-          <button class="node" data-node="database" style="top: 500px; left: 220px;">
-            PostgreSQL
-          </button>
-
-          <button class="node" data-node="scrapers" style="top: 430px; left: 520px;">
-            Python Scrapers
-          </button>
-
-          <button class="node" data-node="sources" style="top: 580px; left: 520px;">
-            External MMA Sources
-          </button>
+      <section class="overview-section" aria-labelledby="overview-heading">
+        <div class="section-heading">
+          <p class="eyebrow">At a glance</p>
+          <h2 id="overview-heading">Each layer of the stack</h2>
         </div>
 
-        <aside class="details-panel" id="detailsPanel">
-          <h2>Select a component</h2>
-          <p>Click any part of the architecture diagram to see what it does.</p>
-        </aside>
-      </div>
-      <script src="/static/architecture/architecture.js" defer></script>
-    </section>
+        <div class="overview-grid">
+          <article class="overview-card">
+            <span class="overview-kicker">Front-end</span>
+            <h3>HTML, CSS, JavaScript</h3>
+            <p>
+              The browser renders a lightweight interface with standard web
+              tech, keeping the client side simple and fast.
+            </p>
+          </article>
 
+          <article class="overview-card">
+            <span class="overview-kicker">Back-end</span>
+            <h3>Go with mostly standard packages</h3>
+            <p>
+              The app uses <code>net/http</code> for routing and
+              <code>database/sql</code> with <code>pgx</code> for database work,
+              which keeps dependencies small and the request path predictable.
+            </p>
+          </article>
+
+          <article class="overview-card">
+            <span class="overview-kicker">Database</span>
+            <h3>PostgreSQL</h3>
+            <p>
+              Fighter, event, and matchup data lives in Postgres so the Go app
+              can serve structured pages and queries reliably.
+            </p>
+          </article>
+
+          <article class="overview-card">
+            <span class="overview-kicker">Data retrieval</span>
+            <h3>Python scraper pipeline</h3>
+            <p>
+              Python scripts use BeautifulSoup 4 to scrape source sites and
+              <code>psycopg2</code> to normalize and insert fresh data.
+            </p>
+          </article>
+
+          <article class="overview-card">
+            <span class="overview-kicker">Hosting</span>
+            <h3>Hetzner VPS on Ubuntu</h3>
+            <p>
+              Cloudflare handles DNS, Caddy terminates HTTPS, and the Go service
+              runs behind the reverse proxy on the VPS.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="architecture-shell" aria-labelledby="diagram-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive map</p>
+          <h2 id="diagram-heading">Click a node to zoom in</h2>
+        </div>
+
+        <div class="architecture-layout">
+          <div class="diagram-card">
+            <div class="diagram-toolbar">
+              <p id="diagramStatus">Overview mode</p>
+              <button class="reset-button" id="resetView" type="button">
+                Reset view
+              </button>
+            </div>
+
+            <div class="diagram-viewport" id="diagramViewport">
+              <div class="diagram-stage" id="diagramStage">
+                <svg
+                  class="diagram-lines"
+                  viewBox="0 0 1280 920"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <marker
+                      id="arrowHead"
+                      markerWidth="9"
+                      markerHeight="9"
+                      refX="7"
+                      refY="4"
+                      orient="auto"
+                    >
+                      <path d="M 0 0 L 8 4 L 0 8 z" />
+                    </marker>
+                  </defs>
+
+                  <path d="M 182 190 L 340 190" class="flow-line request-line" />
+                  <path d="M 486 190 L 676 190" class="flow-line request-line" />
+                  <path d="M 898 190 L 1032 190" class="flow-line request-line" />
+                  <path d="M 1112 230 L 1112 332 L 732 332 L 732 372" class="flow-line app-line" />
+                  <path d="M 606 430 L 446 430" class="flow-line app-line" />
+                  <path d="M 650 496 L 540 496 L 540 548" class="flow-line data-line" />
+                  <path d="M 856 620 L 558 620" class="flow-line data-line" />
+                </svg>
+
+                <button
+                  class="node node-user"
+                  data-node="user"
+                  data-x="98"
+                  data-y="190"
+                  style="left: 36px; top: 134px;"
+                  type="button"
+                >
+                  <span class="node-label">User types in<br />Domain Name</span>
+                </button>
+
+                <button
+                  class="node node-edge"
+                  data-node="domain"
+                  data-x="414"
+                  data-y="190"
+                  style="left: 342px; top: 136px;"
+                  type="button"
+                >
+                  <span class="node-label">Fightdb.org</span>
+                </button>
+
+                <button
+                  class="node node-network"
+                  data-node="cloudflare"
+                  data-x="786"
+                  data-y="190"
+                  style="left: 676px; top: 124px;"
+                  type="button"
+                >
+                  <span class="node-label">
+                    Cloudflare resolves DNS and forwards requests to origin
+                  </span>
+                </button>
+
+                <div class="host-shell" aria-hidden="true"></div>
+                <div class="route-label route-label-request" aria-hidden="true">Request route</div>
+                <div class="route-label route-label-server" aria-hidden="true">Server route</div>
+                <div class="route-label route-label-data" aria-hidden="true">Data route</div>
+
+                <button
+                  class="node node-host"
+                  data-node="vps"
+                  data-x="1042"
+                  data-y="96"
+                  style="left: 922px; top: 40px;"
+                  type="button"
+                >
+                  <span class="node-label">Hetzner VPS (Ubuntu)</span>
+                </button>
+
+                <button
+                  class="node node-hosting"
+                  data-node="caddy"
+                  data-x="1112"
+                  data-y="190"
+                  style="left: 1038px; top: 144px;"
+                  type="button"
+                >
+                  <span class="node-label">Caddy Server</span>
+                  <span class="node-meta">
+                    Caddy terminates HTTPS and reverse proxies to the Go app
+                  </span>
+                </button>
+
+                <button
+                  class="node node-frontend"
+                  data-node="frontend"
+                  data-x="314"
+                  data-y="430"
+                  style="left: 186px; top: 372px;"
+                  type="button"
+                >
+                  <span class="node-label">Front-end</span>
+                  <span class="node-copy">
+                    <span>- Javascript</span>
+                    <span>- Html</span>
+                    <span>- CSS</span>
+                  </span>
+                </button>
+
+                <button
+                  class="node node-backend"
+                  data-node="backend"
+                  data-x="672"
+                  data-y="430"
+                  style="left: 526px; top: 366px;"
+                  type="button"
+                >
+                  <span class="node-label">Back-end</span>
+                  <span class="node-copy">
+                    <span>- Golang</span>
+                    <span class="node-subpoint">- net/http package for routing</span>
+                    <span class="node-subpoint">- database/sql + pgx for efficient DB access</span>
+                  </span>
+                </button>
+
+                <button
+                  class="node node-data"
+                  data-node="database"
+                  data-x="408"
+                  data-y="620"
+                  style="left: 272px; top: 566px;"
+                  type="button"
+                >
+                  <span class="node-label">Database</span>
+                  <span class="node-copy">
+                    <span>- PostgreSQL database</span>
+                  </span>
+                </button>
+
+                <button
+                  class="node node-pipeline"
+                  data-node="scrapers"
+                  data-x="860"
+                  data-y="620"
+                  style="left: 704px; top: 546px;"
+                  type="button"
+                >
+                  <span class="node-label">Data Retrieval</span>
+                  <span class="node-copy">
+                    <span>- Python</span>
+                    <span class="node-subpoint">- Using BeautifulSoup 4 for site scraping</span>
+                    <span class="node-subpoint">- Psycopg2 for Postgres Db adapter</span>
+                  </span>
+                </button>
+
+                <!-- <div class="flow-caption" style="left: 86px; top: 226px;"> -->
+                <!--   Browser request starts here -->
+                <!-- </div> -->
+                <!-- <div class="flow-caption" style="left: 804px; top: 654px;"> -->
+                <!--   Scrapers update the database -->
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+
+          <aside class="details-panel" id="detailsPanel" aria-live="polite"></aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/architecture/architecture.js" defer></script>
   </body>
 </html>
