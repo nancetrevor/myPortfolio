@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/static/architecture/architecture.css">
+  </head>
+  <body>
+    <section class="architecture-section">
+      <div class="architecture-layout">
+        <div class="diagram-area">
+          <svg class="diagram-lines" viewBox="0 0 1000 700" preserveAspectRatio="none">
+            <line x1="850" y1="120" x2="700" y2="220" />
+            <line x1="700" y1="220" x2="520" y2="220" />
+            <line x1="520" y1="320" x2="420" y2="470" />
+            <line x1="600" y1="470" x2="470" y2="520" />
+          </svg>
+
+          <button class="node" data-node="domain" style="top: 40px; left: 760px;">
+            FightDB.org
+          </button>
+
+          <button class="node" data-node="cloudflare" style="top: 180px; left: 630px;">
+            Cloudflare
+          </button>
+
+          <button class="node" data-node="caddy" style="top: 180px; left: 420px;">
+            Caddy Server
+          </button>
+
+          <button class="node" data-node="backend" style="top: 320px; left: 260px;">
+            Go Backend
+          </button>
+
+          <button class="node" data-node="database" style="top: 500px; left: 220px;">
+            PostgreSQL
+          </button>
+
+          <button class="node" data-node="scrapers" style="top: 430px; left: 520px;">
+            Python Scrapers
+          </button>
+
+          <button class="node" data-node="sources" style="top: 580px; left: 520px;">
+            External MMA Sources
+          </button>
+        </div>
+
+        <aside class="details-panel" id="detailsPanel">
+          <h2>Select a component</h2>
+          <p>Click any part of the architecture diagram to see what it does.</p>
+        </aside>
+      </div>
+      <script src="/static/architecture/architecture.js" defer></script>
+    </section>
+
+  </body>
+</html>
