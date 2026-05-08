@@ -66,6 +66,18 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
 a {
   color: var(--accent-2);
   text-decoration: none;
@@ -223,6 +235,18 @@ main {
   font-size: 0.94rem;
 }
 
+.cert-badge-rail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 64px;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+}
+
 .skills-wrap {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -267,6 +291,19 @@ main {
   font-weight: 700;
 }
 
+.cert-badge-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-badge-chip img {
+  display: block;
+  width: 90px;
+  max-width: 100%;
+  height: auto;
+}
+
 .resume-panel,
 .contact-panel {
   display: grid;
@@ -292,6 +329,20 @@ main {
   padding: 0 1.2rem 1.2rem;
 }
 
+.contact-panel {
+  display: inline-grid;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.contact-panel p {
+  margin: 0;
+}
+
+.contact-link {
+  font-weight: 700;
+}
+
 .site-footer {
   border-top: 1px solid rgba(162, 183, 201, 0.12);
   text-align: center;
@@ -315,6 +366,11 @@ main {
     display: none;
   }
 
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .two-col,
   .three-col,
   .skills-wrap {
@@ -324,5 +380,41 @@ main {
   .hero {
     min-height: 52vh;
     padding-top: 1rem;
+  }
+}
+
+.skill-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-row:last-child {
+  border-bottom: none;
+}
+
+.skill-row strong {
+  min-width: 150px;
+  color: var(--accent-color);
+}
+
+.skill-row span {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .contact-panel {
+    width: 100%;
+  }
+
+  .skill-row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .skill-row strong {
+    min-width: auto;
   }
 }

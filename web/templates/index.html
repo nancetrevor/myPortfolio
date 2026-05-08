@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trevor Nance | Developer Portfolio</title>
+    <title>Trevor Nance | Backend & Cloud Developer</title>
     <meta
       name="description"
-      content="Developer portfolio featuring resume, education, skills, and projects."
+      content="Backend and cloud-focused software developer portfolio featuring AWS certification, data systems, backend APIs, and projects."
     />
-    <link rel="icon" type="image/png" href="/static/img/portfolio_favicon.png">
+    <link rel="icon" type="image/png" href="/static/img/portfolio_favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,15 +17,18 @@
     />
     <link rel="stylesheet" href="/static/css/styles.css" />
   </head>
+
   <body>
     <header class="site-header">
       <a class="brand" href="#home">TN</a>
+
       <nav>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -33,42 +36,110 @@
 
     <main id="home">
       <section class="hero section reveal">
-        <p class="eyebrow">Software Developer Portfolio</p>
-        <h1>Full-Stack Developer with a focus on Back-End systems</h1>
+        <p class="eyebrow">Backend Developer | AWS Certified</p>
+
+        <h1>Building backend and cloud systems with Go, Python, SQL, and AWS.</h1>
+
         <p class="lead">
-          I enjoy developing full-stack web applications and CLI tools. Mostly focused on 
-          back-end development with Goland, Python, JS
+        I build APIs, data pipelines, and cloud-ready tools for inventory,
+        forecasting, automation, and operational workflows.
         </p>
+
         <div class="hero-actions">
           <a class="btn btn-primary" href="/static/img/resume.pdf">View Resume</a>
+          <a class="btn btn-secondary" href="#projects">View Projects</a>
+        </div>
+      </section>
+      <section id="about" class="section reveal">
+        <h2>About</h2>
+
+        <div class="panel">
+          <p>
+          I am a backend-focused developer with experience building data-driven
+          tools for inventory, forecasting, procurement, and operations.
+          </p>
+
+          <p>
+          My main tools are Go, Python, SQL, PostgreSQL, Docker, Linux, and AWS.
+          I am currently focused on cloud architecture, backend APIs, and AI-assisted
+          retrieval systems.
+          </p>
+        </div>
+      </section>
+      <section id="certifications" class="section reveal">
+        <div class="section-heading">
+          <h2>Certifications</h2>
+          <div class="cert-badge-rail" aria-label="Certification badges">
+            <span class="cert-badge-chip">
+              <img src="/static/img/AWS-SAA.png" alt="AWS Certified Solutions Architect Associate badge" />
+            </span>
+          </div>
+        </div>
+
+        <div class="grid two-col">
+          <article class="card">
+            <h3>AWS Certified Solutions Architect – Associate</h3>
+            <p class="meta">Amazon Web Services</p>
+            <p>
+              Validates knowledge of AWS cloud architecture concepts including compute,
+              networking, storage, databases, security, high availability, monitoring, and
+              cost optimization.
+            </p>
+            <div class="links">
+              <a href="https://www.credly.com/badges/5d413ae7-9b02-4c27-9362-263b502fd2db/public_url">Verify Credential</a>
+            </div>
+          </article>
         </div>
       </section>
 
       <section id="projects" class="section reveal">
         <h2>Featured Projects</h2>
+
         <div class="grid three-col">
           <article class="card project-card">
-            <h3>MMA Site</h3>
-            <p>As a fan of MMA and stats, I wanted a basic site I could go to to view past and upcoming fights.
-          </p>
-            <p class="meta">Tech: Goland, Python, JS, PostgreSQL, CSS, Docker</p>
+            <h3>MMA Data Platform</h3>
+
+            <p>
+              Built a data-driven MMA platform for viewing fighters, events, fight results,
+              and historical statistics. The project includes a PostgreSQL database, Python
+              scraping pipelines, and a Go REST API serving structured fight data.
+            </p>
+
+            <p class="meta">
+              Tech: Go, Python, JavaScript, PostgreSQL, Docker, HTML/CSS
+            </p>
+
             <div class="links">
               <a href="https://fightdb.org">Site Link</a>
-              <a href="/architecture">Architecture Explination</a>
+              <a href="/architecture">Architecture Explanation</a>
             </div>
           </article>
+
           <article class="card project-card">
             <h3>Snip</h3>
-            <p>I needed a basic CLI tool to help me remember the many tools/commands I have.</p>
-            <p class="meta">Tech: Golang</p>
+
+            <p>
+              Built a terminal-based CLI tool for saving, searching, and reusing command
+              snippets while working in the terminal.
+            </p>
+
+            <p class="meta">Tech: Go, Bubble Tea</p>
+
             <div class="links">
               <a href="https://github.com/nancetrevor/Snip">Git Repo</a>
             </div>
           </article>
+
           <article class="card project-card">
-            <h3>Journal</h3>
-            <p>Basic CLI tool for quick writing. Can search entries, adjust editor, open entry in editor, etc.</p>
-            <p class="meta">Tech: Golang</p>
+            <h3>CLI Journal Tool</h3>
+
+            <p>
+              Developed a file-based journaling CLI with search, editor configuration, and
+              quick entry retrieval for writing notes from the terminal.
+            </p>
+
+            <p class="meta">Tech: Go</p>
+
             <div class="links">
               <a href="https://github.com/nancetrevor/cli_journal">Git Repo</a>
             </div>
@@ -76,60 +147,69 @@
         </div>
       </section>
 
-      <section id="education" class="section reveal">
-        <h2>Education</h2>
-        <div class="grid two-col">
-          <article class="card">
-            <h3>B.S. in Computer Science</h3>
-            <p class="meta">Western Governers University | 2021 - 2022</p>
-          </article>
-          <article class="card">
-            <h3>B.S. in Dietary Nutrition</h3>
-            <p class="meta">Johnson & Wales University | 2013 - 2017</p>
-          </article>
-        </div>
-      </section>
-
       <section id="skills" class="section reveal">
         <h2>Skills</h2>
-        <div class="skills-wrap">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <ul>
-              <li>JavaScript</li>
-              <li>Golang</li>
-              <li>Python</li>
-              <li>SQL</li>
-            </ul>
+
+        <div class="panel">
+          <div class="skill-row">
+            <strong>Backend:</strong>
+            <span>Go, Python, REST APIs, FastAPI, Flask, API design</span>
           </div>
-          <div class="skill-group">
-            <h3>Frontend</h3>
-            <ul>
-              <li>React</li>
-              <li>HTML/CSS</li>
-            </ul>
+
+          <div class="skill-row">
+            <strong>Databases & Data:</strong>
+            <span>PostgreSQL, MySQL, SQL, data modeling, ETL pipelines</span>
           </div>
-          <div class="skill-group">
-            <h3>Backend & Tools</h3>
-            <ul>
-              <li>PostgreSQL</li>
-              <li>Git/GitHub</li>
-              <li>VPS Deployment</li>
-            </ul>
+
+          <div class="skill-row">
+            <strong>AWS & Cloud:</strong>
+            <span>EC2, S3, RDS, VPC, IAM, Route 53, CloudFront, Lambda</span>
+          </div>
+
+          <div class="skill-row">
+            <strong>AI & Search:</strong>
+            <span>Bedrock, OpenSearch, embeddings, vector search, RAG</span>
+          </div>
+
+          <div class="skill-row">
+            <strong>Tools:</strong>
+            <span>Docker, Linux, Git/GitHub, VPS hosting, Caddy</span>
           </div>
         </div>
       </section>
+      <section id="education" class="section reveal">
+        <h2>Education & Technical Training</h2>
 
+        <div class="grid two-col">
+          <article class="card">
+            <h3>Boot.dev</h3>
+            <p class="meta">Backend Developer Program</p>
+            <p>
+              Backend-focused training in Go, Python, SQL, algorithms, data structures,
+              Linux, Git, HTTP servers, and API development.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>B.S. in Nutrition</h3>
+            <p class="meta">Johnson & Wales University | 2016</p>
+            <p>
+              Academic background in nutrition, food systems, and operational decision-making,
+              which supports my work building software for inventory, procurement, and
+              forecasting workflows.
+            </p>
+          </article>
+        </div>
+      </section>
 
       <section id="contact" class="section reveal">
         <h2>Contact</h2>
+
         <div class="panel contact-panel">
           <p>Email: <a href="mailto:trevornance7@gmail.com">Trevornance7@gmail.com</a></p>
           <p>GitHub: <a href="https://github.com/nancetrevor">github.com/nancetrevor</a></p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/trevor-nance/">linkedin.com/in/trevor-nance</a></p>
-            <div class="resume-actions">
-              <a class="btn btn-primary" href="/static/img/resume.pdf" download>Download Resume</a>
-            </div>
+          <p>Resume: <a class="contact-link" href="/static/img/resume.pdf" download>Download Resume</a></p>
         </div>
       </section>
     </main>
