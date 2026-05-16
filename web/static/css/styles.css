@@ -1,17 +1,17 @@
 :root {
   color-scheme: dark;
-  --bg: #09111b;
-  --bg-muted: #0d1724;
-  --panel: rgba(16, 27, 40, 0.74);
-  --panel-strong: rgba(19, 33, 49, 0.95);
-  --ink: #ccd6f6;
-  --ink-strong: #e6f1ff;
+  --bg: #0a192f;
+  --bg-muted: #112240;
+  --panel: rgba(17, 34, 64, 0.78);
+  --panel-strong: rgba(23, 42, 69, 0.96);
+  --ink: #a8b2d1;
+  --ink-strong: #ccd6f6;
   --ink-soft: #8892b0;
   --accent: #64ffda;
   --accent-soft: rgba(100, 255, 218, 0.12);
-  --line: rgba(136, 146, 176, 0.18);
-  --line-strong: rgba(136, 146, 176, 0.34);
-  --shadow: 0 24px 60px rgba(2, 12, 27, 0.38);
+  --line: rgba(136, 146, 176, 0.16);
+  --line-strong: rgba(136, 146, 176, 0.28);
+  --shadow: 0 24px 60px rgba(2, 12, 27, 0.5);
   --radius: 18px;
   --content-width: 1120px;
 }
@@ -28,10 +28,7 @@ body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(100, 255, 218, 0.08), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(100, 255, 218, 0.05), transparent 24%),
-    linear-gradient(180deg, #08101a 0%, var(--bg) 42%, #050b13 100%);
+  background: linear-gradient(180deg, #0a192f 0%, #0a192f 48%, #081427 100%);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
@@ -206,12 +203,12 @@ a:hover {
 .btn-primary {
   background: transparent;
   color: var(--accent);
-  border: 1px solid rgba(100, 255, 218, 0.42);
-  box-shadow: 0 16px 30px rgba(100, 255, 218, 0.08);
+  border: 1px solid rgba(100, 255, 218, 0.32);
+  box-shadow: 0 16px 30px rgba(2, 12, 27, 0.24);
 }
 
 .btn-secondary {
-  color: var(--ink);
+  color: var(--ink-strong);
   border: 1px solid var(--line-strong);
   background: rgba(255, 255, 255, 0.02);
 }
@@ -254,9 +251,7 @@ a:hover {
 
 .panel,
 .card {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
-    var(--panel);
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -289,17 +284,6 @@ a:hover {
 .project-card {
   position: relative;
   overflow: hidden;
-}
-
-.project-card::after {
-  content: "";
-  position: absolute;
-  inset: auto -20% -35% auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(100, 255, 218, 0.1), transparent 68%);
-  pointer-events: none;
 }
 
 .project-label {
