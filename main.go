@@ -20,7 +20,7 @@ func main() {
 	})
 
 	mux.HandleFunc("/", handlers.HomeHandler)
-	mux.HandleFunc("/architecture/", handlers.ArchitectureHandler)
+	mux.HandleFunc("/mma_architecture/", handlers.ArchitectureHandler)
 	mux.HandleFunc("/blog/", handlers.BlogHandler)
 
 	serverHost := "127.0.0.1:8081"

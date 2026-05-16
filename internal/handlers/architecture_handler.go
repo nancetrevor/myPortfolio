@@ -10,13 +10,13 @@ type ArchitecturePageData struct {
 }
 
 func ArchitectureHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("web/templates/architecture.html")
+	t, err := template.ParseFiles("web/templates/mma_architecture.html")
 	if err != nil {
 		http.Error(w, "Template error", http.StatusInternalServerError)
 		return
 	}
 	h := ArchitecturePageData{
-		Title: "Architecture",
+		Title: "MMA_Architecture",
 	}
 
 	t.Execute(w, h)

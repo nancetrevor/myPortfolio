@@ -56,11 +56,15 @@
 }
 
 .post-shell h1 {
-  max-width: 14ch;
+  max-width: 10ch;
+  font-family: "Arial", sans-serif;
+  font-weight: 100;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .markdown-body {
-  color: var(--ink);
+  color: #dbe5ff;
 }
 
 .markdown-body > :first-child {
@@ -87,7 +91,7 @@
 .markdown-body h5,
 .markdown-body h6 {
   margin: 2rem 0 0.8rem;
-  color: var(--ink-strong);
+  color: #f1f6ff;
   font-family: "Syne", sans-serif;
   line-height: 1.12;
 }
@@ -103,7 +107,7 @@
 
 .markdown-body p,
 .markdown-body li {
-  color: var(--ink-soft);
+  color: #dbe5ff;
   line-height: 1.8;
 }
 
@@ -113,7 +117,7 @@
 }
 
 .markdown-body strong {
-  color: var(--ink-strong);
+  color: #f1f6ff;
 }
 
 .markdown-body code {

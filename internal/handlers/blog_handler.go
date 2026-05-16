@@ -128,7 +128,7 @@ func parseMdFile(filename string, text string) (BlogPostData, error) {
 		return post, nil
 	}
 
-	post.Title = strings.TrimPrefix(lines[0], "title: ")
+	post.Title = strings.ToTitle(strings.TrimPrefix(lines[0], "title: "))
 	post.Date = strings.TrimPrefix(lines[1], "date: ")
 
 	body := strings.Join(lines[3:], "\n")
