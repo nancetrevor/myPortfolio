@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{.Title}} | Trevor Nance</title>
+    <meta
+      name="description"
+      content="Individual blog entry rendered from Markdown."
+    />
+    <link rel="icon" type="image/png" href="/static/img/portfolio_favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/blog/blog-post.css" />
+  </head>
+  <body>
+    <main class="blog-post-page">
+      <header class="post-shell reveal">
+        <div class="post-meta-row">
+          <a class="post-back-link" href="/blog/">Back to blog</a>
+          <p class="post-date">{{.Post.Date}}</p>
+        </div>
+        <h1>{{.Post.Title}}</h1>
+      </header>
+
+      <article class="post-shell post-body-shell reveal">
+        <div class="markdown-body">
+          {{.Post.Content}}
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Trevor Nance. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

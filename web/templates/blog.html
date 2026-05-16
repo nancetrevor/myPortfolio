@@ -24,31 +24,18 @@
         <a class="brand" href="/">TN</a>
 
         <div class="intro-copy">
-          <p class="eyebrow">Markdown Notes</p>
           <h1>{{.Title}}</h1>
-          <p class="role">Server-rendered posts from your Go blog handler.</p>
-          <p class="lead">
-            This page is intentionally minimal so you can plug your parsed Markdown
-            output straight into the template.
-          </p>
+          <p class="role">{{.Description}}</p>
         </div>
-
-        <nav aria-label="Blog navigation">
-          <ul class="nav-links">
-            <li><a href="#posts" data-section-link>Posts</a></li>
-          </ul>
-        </nav>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="/">Back Home</a>
-          <a class="btn btn-secondary" href="/architecture/">Architecture</a>
         </div>
       </header>
 
       <main class="content-column blog-content">
         <section id="posts" class="section reveal">
           <div class="section-heading">
-            <span class="section-index">01</span>
             <h2>Posts</h2>
           </div>
 
@@ -56,33 +43,21 @@
             <div class="blog-post-list">
               {{range .BlogPosts}}
                 <article class="card blog-post">
-                  <header class="blog-post-header">
-                    <p class="blog-post-date">{{.Date}}</p>
+                  <a class="blog-post-link" href="/blog/{{.Slug}}/">
                     <h3>{{.Title}}</h3>
-                  </header>
-
-                  <div class="markdown-body">
-                    {{.Content}}
-                  </div>
+                  </a>
+                  <p class="blog-post-date">{{.Date}}</p>
                 </article>
               {{end}}
             </div>
           {{else}}
             <article class="card blog-empty-state">
               <h3>No posts yet</h3>
-              <p>
-                Your handler did not pass any blog posts into the template.
-              </p>
             </article>
           {{end}}
         </section>
       </main>
     </div>
-
-    <footer class="site-footer">
-      <p>&copy; <span id="year"></span> Trevor Nance. All rights reserved.</p>
-    </footer>
-
     <script src="/static/js/script.js"></script>
   </body>
 </html>

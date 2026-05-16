@@ -1,0 +1,195 @@
+:root {
+  --post-width: 760px;
+}
+
+.blog-post-page {
+  width: min(calc(100% - 2rem), 980px);
+  margin: 0 auto;
+  padding: 3.5rem 0 4rem;
+}
+
+.post-shell {
+  width: min(100%, var(--post-width));
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.blog-post-page .site-footer {
+  width: min(calc(100% - 2rem), var(--post-width));
+}
+
+.post-shell:first-child {
+  padding: 1.6rem 1.6rem 1.4rem;
+}
+
+.post-body-shell {
+  margin-top: 1.25rem;
+  padding: 1.6rem;
+}
+
+.post-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1rem;
+}
+
+.post-back-link {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.post-date {
+  margin: 0;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.post-shell h1 {
+  max-width: 14ch;
+}
+
+.markdown-body {
+  color: var(--ink);
+}
+
+.markdown-body > :first-child {
+  margin-top: 0;
+}
+
+.markdown-body > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin: 1.4rem auto;
+  border: 1px solid var(--line);
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin: 2rem 0 0.8rem;
+  color: var(--ink-strong);
+  font-family: "Syne", sans-serif;
+  line-height: 1.12;
+}
+
+.markdown-body p,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body blockquote,
+.markdown-body pre,
+.markdown-body table {
+  margin: 0 0 1.15rem;
+}
+
+.markdown-body p,
+.markdown-body li {
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.35rem;
+}
+
+.markdown-body strong {
+  color: var(--ink-strong);
+}
+
+.markdown-body code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  padding: 0.15rem 0.4rem;
+  border-radius: 8px;
+  background: rgba(100, 255, 218, 0.08);
+  color: var(--accent);
+  font-size: 0.92em;
+}
+
+.markdown-body pre {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(6, 14, 23, 0.96);
+  overflow-x: auto;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.markdown-body pre code {
+  padding: 0;
+  background: transparent;
+  color: #cce8ff;
+}
+
+.markdown-body blockquote {
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  background: rgba(100, 255, 218, 0.05);
+}
+
+.markdown-body blockquote p {
+  margin: 0;
+}
+
+.markdown-body hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 0.85rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.markdown-body th {
+  color: var(--ink-strong);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 760px) {
+  .blog-post-page {
+    width: min(calc(100% - 1rem), 980px);
+    padding-top: 2rem;
+  }
+
+  .post-shell:first-child,
+  .post-body-shell {
+    padding: 1.25rem;
+  }
+
+  .post-meta-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
