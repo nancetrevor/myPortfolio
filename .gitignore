@@ -1,3 +1,6 @@
 deploy.sh
 portfolio_site
 /content/blog/testPost.md
+/.DS_Store
+/web/static/.DS_Store
+/web/static/blog/.DS_Store
