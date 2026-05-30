@@ -281,6 +281,11 @@ a:hover {
   gap: 1.1rem;
 }
 
+.certification-list {
+  display: grid;
+  gap: 1.1rem;
+}
+
 .project-card {
   position: relative;
   overflow: hidden;
