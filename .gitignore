@@ -4,3 +4,4 @@ portfolio_site
 /.DS_Store
 /web/static/.DS_Store
 /web/static/blog/.DS_Store
+dist/
